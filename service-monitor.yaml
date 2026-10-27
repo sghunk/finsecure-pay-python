@@ -1,0 +1,15 @@
+﻿apiVersion: ://coreos.com
+kind: ServiceMonitor
+metadata:
+  name: finsecure-api-monitor
+  namespace: default
+  labels:
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      app: finsecure-api
+  endpoints:
+  - port: 8000
+    path: /metrics
+    interval: 15s
